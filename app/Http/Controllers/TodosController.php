@@ -29,12 +29,14 @@ class TodosController extends Controller
         ['name'=>'required|min:6',
         'description'=>'required']);
         $data = request()->all();
+
         $todo = new Todo();
         $todo->name = $data['name'];
         $todo->description = $data['description'];
         $todo->completed = false;
         $todo->save();
 
+        session()->flash('success','Added Successfully');
         return redirect('/todos');
     }
 
