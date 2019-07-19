@@ -67,4 +67,11 @@ class TodosController extends Controller
         return redirect('/todos');
 
     }
+
+    function updateStatus(Todo $todo){
+        $todo->completed = true;
+        $todo->save();
+
+        return redirect('/todos');
+    }
 }

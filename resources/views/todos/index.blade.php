@@ -14,6 +14,9 @@
                             <ul class="list-group">
                                 @foreach($todos as $data )
                                     <li class="list-group-item">{{$data->name}}
+                                        @if(!$data->completed)
+                                            <a href="/todos/{{$data->id}}/updatestatus" class="btn btn-warning btn-sm float-right">Complete</a>
+                                        @endif
                                         <a href="/todos/{{$data->id}}" class="btn btn-primary btn-sm float-right">View</a>
                                     </li>
                                 @endforeach
